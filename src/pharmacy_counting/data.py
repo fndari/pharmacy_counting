@@ -29,14 +29,17 @@ class Prescription(PrescriptionBase):
         try:
             assert len(values) == len(field_names), 'values provided do not match number of expected fields'
         except AssertionError as e:
-            raise ValueError(f'Missing fields: {e}')
+            raise ValueError('Missing fields: {}'.format(e))
         else:
             for name, value in zip(field_names, values):
                 converter = cls.converters[name]
                 try:
                     val_converted = converter(value)
                 except (ValueError, TypeError) as e:
-                    raise ValueError(f'Was not possible to convert "{value}" using "{converter}" for field "{name}"')
+                    raise ValueError(
+                        'Was not possible to convert "{value}" using "{converter}" for field "{name}"'
+                        .format(**locals())
+                    )
                 else:
                     converted.append(val_converted)
 
@@ -79,9 +82,9 @@ def serialize_currency(amount):
 class DrugSummaryBase:
 
     def __repr__(self):
+        clsname = type(self).__name__
         return (
-            f'{type(self).__name__}({self.name}: '
-            f'num_prescriber={self.num_prescriber}, total_cost={self.total_cost})'
+            '{clsname}({self.name}: num_prescriber={self.num_prescriber}, total_cost={self.total_cost})'.format(**locals())
         )
 
     def add_prescription(self, prescription):

@@ -16,4 +16,4 @@ class DefaultDictKeyAsArg(collections.defaultdict):
 
 
 def log_skipped_stdout(line_idx, msg):
-    print(f'Skipping line {line_idx}: {msg}')
+    print('Skipping line {line_idx}: {msg}'.format(**locals()))

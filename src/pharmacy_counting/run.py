@@ -34,7 +34,9 @@ def main():
                 if is_valid(prescription):
                     table_drugs[prescription.drug_name].add_prescription(prescription)
                 else:
-                    LOG_SKIPPED(line_idx, f'prescription does not pass validation requirements.\n\t{prescription}')
+                    LOG_SKIPPED(line_idx,
+                                'prescription does not pass validation requirements.\n\t{}'.format(prescription)
+                                )
 
     drugs = list(table_drugs.values())
     # sort by name first
