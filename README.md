@@ -62,7 +62,6 @@
 # Additional unit tests
 In addition to the ones in the `insight_testsuite`, additional unit tests are available in the `tests` subdirectory. The tests require `pytest` to run (`pip install pytest; pytest -v name_of_test_module.py`).
 
-
 # Outlook
 
 In other words, what would I do differently?

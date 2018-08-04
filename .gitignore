@@ -1,0 +1,14 @@
+*pytest_cache/
+*__pycache__/
+*.pyc
+
+insight_testsuite/temp/
+
+# probably OSX artefacts?
+*.DS_Store
+
+# profiler files
+*.lprof
+*.prof
+
+!.md

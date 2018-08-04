@@ -1,0 +1,4 @@
+drug_name,num_prescriber,total_cost
+CHLORPROMAZINE,2,3000
+VICODIN,3,3000
+AMBIEN,1,200
